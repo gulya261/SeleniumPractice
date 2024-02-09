@@ -1,0 +1,20 @@
+{
+  "name": "new-project",
+  "version": "1.0.0",
+  "description": "selenium",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha src/tests/index.js --timeout 100000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.10",
+    "node-fetch": "^2.6.7",
+    "selenium-webdriver": "^4.15.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
