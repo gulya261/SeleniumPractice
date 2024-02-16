@@ -11,7 +11,7 @@ class SearchPage extends BasePage {
        this.emtyBadge = by.className(`shopping_cart_link:empty`)
         
     }
-  async addToCard(){
+  async addItemToCart(){
 
     const addCardButton = await super.findElement(this.addToCardButton)
     await super.clickOnButton(addCardButton)
@@ -22,7 +22,7 @@ class SearchPage extends BasePage {
   //   await super.clickOnButton(this.checkBadge)
   // }
 
-  async removeFromBadge(){
+  async rremoveItemFromCart(){
     const removeButton = await super.findElement(this.removeButton)
   await super.clickOnButton(removeButton)
   }
