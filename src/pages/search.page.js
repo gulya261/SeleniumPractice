@@ -13,8 +13,8 @@ class SearchPage extends BasePage {
     }
   async addItemToCart(){
 
-    const addCardButton = await super.findElement(this.addToCardButton)
-    await super.clickOnButton(addCardButton)
+   // const addCardButton = await super.findElement(this.addToCardButton)
+    await super.clickOnButton(this.addToCardButton)
   }
 
   // async checkBadge(){
@@ -23,8 +23,8 @@ class SearchPage extends BasePage {
   // }
 
   async rremoveItemFromCart(){
-    const removeButton = await super.findElement(this.removeButton)
-  await super.clickOnButton(removeButton)
+   // const removeButton = await super.findElement(this.removeButton)
+  await super.clickOnButton(this.removeButton)
   }
 }
 

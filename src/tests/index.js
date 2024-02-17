@@ -5,9 +5,11 @@ const expect = require("chai").expect;
 const BasePage = require("../pages/base.page.js");
 const LoginPage = require("../pages/login.page.js");
 const SearchPage = require("../pages/search.page.js");
+const ProductPage = require("../pages/product.page.js");
 let basePage = new BasePage();
 let loginPage = new LoginPage();
 let searchPage = new SearchPage();
+let productPage = new ProductPage();
 
 //let driver = await new Builder().forBrowser('chrome').build();;
 describe("First script", function () {
@@ -16,7 +18,7 @@ describe("First script", function () {
     await basePage.openPage("https://www.saucedemo.com/");
 
     const currentURL = await basePage.getPageUrl();
-    console.log(currentURL.toString());
+   // console.log(currentURL.toString());
 
     await loginPage.loginUser("standard_user", "secret_sauce");
     const newURL = await basePage.getPageUrl();
@@ -31,9 +33,8 @@ describe("First script", function () {
   it("AddtoCard", async function () {
     await searchPage.addItemToCart();
    // const checkBadgeElement = await basePage.findElement(searchPage.badge);
-    const checkBadgeValue =
-      await basePage.getElementAttribute(searchPage.badge); // (searchPage.badge)
-    console.log(checkBadgeElement);
+    const checkBadgeValue = await basePage.getElementAttribute(searchPage.badge); // (searchPage.badge)
+   // console.log(checkBadgeElement);
     expect(checkBadgeValue).to.equal("1");
   });
 
@@ -47,6 +48,29 @@ describe("First script", function () {
     );
     expect(isBadgeDisplayed).to.equal(false);
   });
+
+
+  //
+
+  it ("open product page", async function () {
+    await productPage.clickOnButton(productPage.productName)
+
+    //const currentURL = await basePage.getPageUrl();
+   // console.log(currentURL.toString());
+    //const newURL = await basePage.getPageUrl();
+    
+    expect(newURL).equal("https://www.saucedemo.com/inventory-item.html?id=4");
+
+   
+  });
+
+  it("Add to Cart", async function () {
+    await productPage.addItemToCart()
+  
+    const checkValue = await basePage.getElementAttribute(productPage.cartBadge); 
+    expect(checkValue).to.equal("1");
+  });
+
 
   after(async () => await basePage.quitPage());
 });

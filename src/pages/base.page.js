@@ -22,7 +22,7 @@ class BasePage {
   }
 
   async findElement(locator) {
-    return await this.driver.findElement(locator); //
+    return await this.driver.findElement(locator); 
   }
 
   async sendKeysToElement(value, locator) {

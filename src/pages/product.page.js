@@ -12,8 +12,10 @@ class ProductPage extends BasePage {
     }
  
 
+async addItemToCart(){
 
-
+    await super.clickOnButton(this.addToCartBtn)
+  }
 
 
 
