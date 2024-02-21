@@ -11,11 +11,8 @@ class LoginPage extends BasePage {
   }
 
   async loginUser(userValue, passwordValue) {
-   // const userElement = await super.findElement(this.usernameInput);
     await super.sendKeysToElement(userValue, this.usernameInput);
-   // const userPassword = await super.findElement(this.passwordInput);
     await super.sendKeysToElement(passwordValue, this.passwordInput);
-    //const loginButton = await super.findElement(this.loginButton);
     await super.clickOnButton(this.loginButton);
   }
 }

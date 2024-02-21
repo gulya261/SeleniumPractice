@@ -22,7 +22,7 @@ class BasePage {
   }
 
   async findElement(locator) {
-    return await this.driver.findElement(locator); 
+    return await this.driver.findElement(locator);
   }
 
   async sendKeysToElement(value, locator) {
@@ -35,13 +35,29 @@ class BasePage {
     await element.click();
   }
 
-  async getElementAttribute(locator) {
+  async getElementAttribute(locator, value) {
     const element = await this.findElement(locator);
-    await element.getAttribute();
+    const elementValue = await element.getAttribute(value);
+    return elementValue;
+  }
+
+  async getElementText(locator) {
+    const element = await this.findElement(locator);
+    return await element.getText();
   }
 
   async isElementDisplayed(locator) {
     (await this.findElement(locator)).isDisplayed();
   }
+
+  async isElementExist(locator) {
+    try {
+      await this.findElement(locator);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
 }
+
 module.exports = BasePage;
