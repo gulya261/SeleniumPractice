@@ -15,6 +15,10 @@ class LoginPage extends BasePage {
     await super.sendKeysToElement(passwordValue, this.passwordInput);
     await super.clickOnButton(this.loginButton);
   }
+
+ 
 }
+
+
 
 module.exports = LoginPage;

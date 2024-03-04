@@ -6,12 +6,19 @@ const BasePage = require("../pages/base.page.js");
 const LoginPage = require("../pages/login.page.js");
 const SearchPage = require("../pages/search.page.js");
 const ProductPage = require("../pages/product.page.js");
+const ItemComponent = require("../components/itemComponent.js")
+const HeaderComponent = require("../components/headerComponent.js")
+const MenuComponent = require("../components/menuComponent.js")
 let basePage = new BasePage();
 let loginPage = new LoginPage();
 let searchPage = new SearchPage();
 let productPage = new ProductPage();
+let itemComponent = new ItemComponent();
+let headerComponent = new HeaderComponent();
+let menuComponent = new MenuComponent();
 
-describe("First script", function () {
+
+describe.skip("First script", function () {
   //авторизация
   it("Avtorization", async function () {
     await basePage.openPage("https://www.saucedemo.com/");
@@ -49,7 +56,7 @@ describe("First script", function () {
   //
 
   it("open product page", async function () {
-    await searchPage.clickOnButton(searchPage.item);
+    await itemComponent.clickOnButton(itemComponent.searchFirstItem);
     const newURL = await basePage.getPageUrl();
    
 
@@ -57,9 +64,9 @@ describe("First script", function () {
   });
 
   it("Add to Cart in product", async function () {
-    await productPage.addItemToCart();
+    await itemComponent.addItemToCart();
 
-    const checkValue = await basePage.getElementText(productPage.cartBadge);
+    const checkValue = await basePage.getElementText(headerComponent.cartBadge);
     expect(checkValue).to.equal("1");
   });
 

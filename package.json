@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "mocha src/tests/index.js --timeout 100000"
+    "test": "mocha src/tests/*.js --timeout 100000"
   },
   "author": "",
   "license": "ISC",
