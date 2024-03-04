@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "mocha src/tests/index.js --timeout 100000"
+    "test": "mocha src/tests/*.js --timeout 100000"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "selenium-webdriver": "^4.15.0"
   },
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "prettier": "3.2.5"
   }
 }
